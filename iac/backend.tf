@@ -19,7 +19,6 @@ resource "docker_container" "api" {
     external = var.backend_port[terraform.workspace] + count.index * 10
   }
 
-  # El backend es el único que está en ambas redes
   networks_advanced {
     name = docker_network.red_frontend.name
   }
